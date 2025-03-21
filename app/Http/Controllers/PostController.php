@@ -21,7 +21,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->content = $request->content();
+        $post->save();
+        return redirect('/posts');
     }
 
     /**
