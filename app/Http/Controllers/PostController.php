@@ -24,7 +24,7 @@ class PostController extends Controller
         $post = new Post();
         $post->content = $request->content();
         $post->save();
-        return redirect('/posts');
+        return $post;
     }
 
     /**
@@ -40,7 +40,11 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::findOrFail( $id );
+        $post->content = $request->content();
+        $post->save();
+        return $post;
+
     }
 
     /**
@@ -48,6 +52,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::findOrFail( $id );
+        $post->delete();
     }
 }
