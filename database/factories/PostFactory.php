@@ -18,7 +18,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'username' => null,
+            'username' => null,
             'content' => Inspiring::quote(),
             'image' => 'https://picsum.photos/300/300',
         ];

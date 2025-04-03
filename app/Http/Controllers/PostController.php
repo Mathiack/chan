@@ -13,6 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        return collect([]);
         return Post::orderBy('id', 'desc')->get();
     }
 
@@ -32,7 +33,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        return Post::find($id);
+        return Post::findOrFail($id);
     }
 
     /**
@@ -44,7 +45,6 @@ class PostController extends Controller
         $post->content = $request->content();
         $post->save();
         return $post;
-
     }
 
     /**
